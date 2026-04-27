@@ -276,7 +276,7 @@ export async function POST(req: Request) {
     const buffer = await Packer.toBuffer(doc);
     const filename = safeFileName(title);
 
-    return new NextResponse(buffer, {
+    return new NextResponse(new Uint8Array (buffer), { 
       headers: {
         "Content-Type":
           "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
